@@ -1,6 +1,6 @@
 # vue-calculator
 
-> A Vue.js project
+> Task: Create a calculator app using Vue.js. The calculator should be capable of performing addition, subtraction, multiplication, division and exponentiation. It should be usable via mouse and keyboard. Before you start, choose three aspects that you intend to focus on (e.g. design, maintainability, etc.) and briefly explain why you chose each.
 
 ## Build Setup
 
@@ -17,5 +17,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
