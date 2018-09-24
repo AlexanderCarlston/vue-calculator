@@ -7,16 +7,16 @@
     <div id="buttons-container">
       <div class="buttons">
         <span class="operator" id="clear" @click="clear">C</span>
-        <span class="operator">/</span>
-        <span class="operator">*</span>
+        <span class="operator" @click="operator">/</span>
+        <span class="operator" @click="operator">*</span>
         <span @click="addNumber(7)">7</span>
         <span @click="addNumber(8)">8</span>
         <span @click="addNumber(9)">9</span>
-        <span class="operator">-</span>
+        <span class="operator" @click="operator">-</span>
         <span @click="addNumber(4)">4</span>
         <span @click="addNumber(5)">5</span>
         <span @click="addNumber(6)">6</span>
-        <span class="operator">+</span>
+        <span class="operator" @click="operator">+</span>
         <span @click="addNumber(1)">1</span>
         <span @click="addNumber(2)">2</span>
         <span @click="addNumber(3)">3</span>
@@ -47,10 +47,22 @@ export default {
         var screen = document.querySelector("#screen")
         screen.innerText += number
       }
-
     },
     clear(){
       this.screenValue = 0
+    },
+    operator(){
+      if(this.calculateValue === 0){
+        this.calculateValue = this.screenValue
+        this.screenValue = 0
+      } else {
+
+      }
+    },
+    equals(){
+      if(this.calculateValue !== 0){
+
+      }
     }
   }
 }

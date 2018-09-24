@@ -7,6 +7,11 @@
 * Readability (Simplicity over complexity)
 * Functionality (Use functions efficiently)
 
+## Design Goals
+
+## Readability Goals
+
+## Functionality Goals
 
 ## Build Setup
 
