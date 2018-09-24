@@ -8,10 +8,15 @@
 * Functionality (Use functions efficiently)
 
 ## Design Goals
+The reason I picked design was I always want to take pride in what I'm making, and making things mobile friendly is always a design decision. I also love human centered design, so I always plan my projects well and think about the user experience.
 
 ## Readability Goals
+The reason I picked readability is there are a lot of reusability when creating a calcuator, so I want my code to be easily readable. I've come to realize simplicity is more impressive than complexity because simplicity show's you're thinking about people who might work with/on your code. 
 
 ## Functionality Goals
+The reason I picked functionality is because there are a lot of edge cases that I want to prioritize, and decide what I want this calculator to do overall. Even with a simple project there are a lot of considerations that you need to be aware of, so I want to focus on what I can/should get done functionality wise.
+
+
 
 ## Build Setup
 
