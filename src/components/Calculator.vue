@@ -1,5 +1,6 @@
 <template>
   <div id="calculator">
+
     <div id="screen-container">
       <div id="screen">{{screenValue}}</div>
     </div>
@@ -7,36 +8,38 @@
     <div id="buttons-container">
       <div class="buttons">
         <span class="operator" id="clear" @click="clear">C</span>
-        <span class="operator" @click="operator">/</span>
-        <span class="operator" @click="operator">*</span>
+        <span class="operator" @click="operator('division')">/</span>
+        <span class="operator" @click="operator('multiplication')">*</span>
         <span @click="addNumber(7)">7</span>
         <span @click="addNumber(8)">8</span>
         <span @click="addNumber(9)">9</span>
-        <span class="operator" @click="operator">-</span>
+        <span class="operator" @click="operator('subtraction')">-</span>
         <span @click="addNumber(4)">4</span>
         <span @click="addNumber(5)">5</span>
         <span @click="addNumber(6)">6</span>
-        <span class="operator" @click="operator">+</span>
+        <span class="operator" @click="operator('addition')">+</span>
         <span @click="addNumber(1)">1</span>
         <span @click="addNumber(2)">2</span>
         <span @click="addNumber(3)">3</span>
-        <span class="operator" id="equals">=</span>
+        <span class="operator" id="equals" @click="equals">=</span>
         <div class="l-row">
           <span id="zero" @click="addNumber(0)">0</span>
         </div>
       </div>
     </div>
+
   </div>
 </template>
-<script>
 
+<script>
 export default {
   name: "Calculator",
   data(){
     return {
       screenValue: 0,
       calculateValue: 0,
-      totalValue: 0
+      totalValue: 0,
+      operation: ""
     }
   },
   methods: {
@@ -50,10 +53,14 @@ export default {
     },
     clear(){
       this.screenValue = 0
+      this.calculateValue = 0
+      this.totalValue = 0
+      this.operation = ""
     },
-    operator(){
+    operator(operation){
       if(this.calculateValue === 0){
         this.calculateValue = this.screenValue
+        this.operation = operation
         this.screenValue = 0
       } else {
 
@@ -61,7 +68,22 @@ export default {
     },
     equals(){
       if(this.calculateValue !== 0){
-
+        switch(this.operation){
+					case "addition":
+						this.screenValue += this.calculateValue
+            break;
+					case "subtraction":
+						this.screenValue = this.calculateValue - this.screenValue
+            break;
+					case "multiplication":
+						this.screenValue = this.screenValue * this.calculateValue
+            break;
+					case "division":
+						this.screenValue = this.calculateValue / this.screenValue
+						break;
+					default:
+					this.screenValue = "error"
+        }
       }
     }
   }
