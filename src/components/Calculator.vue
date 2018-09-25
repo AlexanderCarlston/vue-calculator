@@ -46,8 +46,12 @@ export default {
       if(this.screenValue === 0){
         this.screenValue = number
       } else {
-        var screen = document.querySelector("#screen")
-        screen.innerText += number
+				var screenString = this.screenValue.toString()
+				var numberString = number.toString()
+				this.screenValue = parseInt(screenString + numberString)
+        // var screen = document.querySelector("#screen")
+				// screen.innerText += number
+				// this.screenValue = parseInt(screen.innerText)
       }
     },
     clear(){
