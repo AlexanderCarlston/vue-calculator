@@ -9,7 +9,7 @@
       <div class="buttons">
         <span class="operator" id="clear" @click="clear">C</span>
         <span class="operator" @click="operator('division')">/</span>
-        <span class="operator" @click="operator('multiplication')">*</span>
+        <span class="operator" @click="operator('multiplication')">x</span>
         <span @click="addNumber(7)">7</span>
         <span @click="addNumber(8)">8</span>
         <span @click="addNumber(9)">9</span>
@@ -38,7 +38,6 @@ export default {
     return {
       screenValue: 0,
       calculateValue: 0,
-      totalValue: 0,
       operation: ""
     }
   },
@@ -54,7 +53,6 @@ export default {
     clear(){
       this.screenValue = 0
       this.calculateValue = 0
-      this.totalValue = 0
       this.operation = ""
     },
     operator(operation){
@@ -63,7 +61,26 @@ export default {
         this.operation = operation
         this.screenValue = 0
       } else {
-
+        switch(this.operation){
+					case "addition":
+						this.calculateValue += this.screenValue
+						this.screenValue = 0
+            break;
+					case "subtraction":
+						this.calculateValue -= this.screenValue
+						this.screenValue = 0
+            break;
+					case "multiplication":
+						this.calculateValue = this.screenValue * this.calculateValue
+						this.screenValue = 0
+            break;
+					case "division":
+						this.calculateValue = this.calculateValue / this.screenValue
+						this.screenValue = 0
+						break;
+					default:
+					this.screenValue = "ERR"
+				}	
       }
     },
     equals(){
@@ -82,8 +99,9 @@ export default {
 						this.screenValue = this.calculateValue / this.screenValue
 						break;
 					default:
-					this.screenValue = "error"
-        }
+					this.screenValue = "ERR"
+				}
+				this.calculateValue = 0
       }
     }
   }
